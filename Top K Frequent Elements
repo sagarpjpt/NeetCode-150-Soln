@@ -1,0 +1,27 @@
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        if(k == 0) return null;
+        else{
+            int output[] = new int[k];
+            List<Integer> freq_count[] = new ArrayList[nums.length+1];
+            for(int i = 0;i<freq_count.length;i++) freq_count[i] = new ArrayList<>();
+            HashMap<Integer,Integer> map = new HashMap<>();
+            for(int i : nums){
+                if(map.containsKey(i)) map.put(i,map.get(i)+1);
+                else map.put(i,1);
+            }
+            for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+                freq_count[entry.getValue()].add(entry.getKey());
+            }
+            for(int i = freq_count.length-1; i>0;i--){
+                Iterator<Integer> iterator = freq_count[i].iterator();
+                while(iterator.hasNext()){
+                    output[--k] = iterator.next();
+                    if(k == 0) break;
+                }
+                if(k == 0) break;
+            }
+            return output;
+        }
+    }
+}
