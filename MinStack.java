@@ -33,7 +33,7 @@ class MinStack {
 
     public MinStack() {
         stack = new Stack<>();
-        minStack = new Stack<>();
+        minStack = new Stack<>();    // used to store curr minimun at each step
     }
 
     public void push(int val) {
