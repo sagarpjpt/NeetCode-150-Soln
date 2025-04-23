@@ -7,7 +7,7 @@ class Solution {
         map.put('(',')');
         for(int i = 0;i<s.length();i++){
             char c = s.charAt(i);
-            //open bracket ---> push to stack
+            //open bracket ---> push to stack 
             if(c == '[' || c == '{' || c == '(')
                 stack.push(c);
             //closed bracket ---> if match to top then pop
