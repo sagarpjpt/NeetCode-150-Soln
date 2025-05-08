@@ -31,7 +31,7 @@ class KthLargest {
         for(int num : nums){
             minPQ.offer(num);
             if(minPQ.size() > k)
-                minPQ.poll();
+                minPQ.poll(); //so that kth largest element is always at root
         }
     }
     
