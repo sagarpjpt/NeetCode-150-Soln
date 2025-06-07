@@ -12,13 +12,13 @@ Note that the path through cities [0,1,2,3] is cheaper but is invalid because it
 
 class Solution {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
-        int[] dist = new int[n];
+        int[] dist = new int[n]; // dist is used to read from in current iteration
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[src] = 0;
 
         // relaxing all edges k+1 times
         for (int i = 0; i <= k; i++) {
-            int[] temp = Arrays.copyOf(dist, n);
+            int[] temp = Arrays.copyOf(dist, n); // temp hold updation in current iteration
             for (int[] flight : flights) {
                 int u = flight[0];
                 int v = flight[1];
@@ -33,8 +33,6 @@ class Solution {
         return dist[dst] == Integer.MAX_VALUE ? -1 : dist[dst];
     }
 }
-
-
 
 /*
 
