@@ -9,6 +9,37 @@ The graph is shown above.
 The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.
 Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops.
 */ 
+
+class Solution {
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+        int[] dist = new int[n];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[src] = 0;
+
+        // relaxing all edges k+1 times
+        for (int i = 0; i <= k; i++) {
+            int[] temp = Arrays.copyOf(dist, n);
+            for (int[] flight : flights) {
+                int u = flight[0];
+                int v = flight[1];
+                int price = flight[2];
+                if (dist[u] != Integer.MAX_VALUE && dist[u] + price < temp[v]) {
+                    temp[v] = dist[u] + price;
+                }
+            }
+            dist = temp;
+        }
+
+        return dist[dst] == Integer.MAX_VALUE ? -1 : dist[dst];
+    }
+}
+
+
+
+/*
+
+// inefficint way --- gives TLE
+
 class Solution {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         // create adjacency list
@@ -54,3 +85,6 @@ class Element {
         this.stops = stops;
     }
 }
+
+
+*/ 
