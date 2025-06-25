@@ -149,15 +149,6 @@ The NeetCode 150 is a carefully curated list of 150 LeetCode problems designed t
 
 ---
 
-## 📘 Format of Each Problem
-
-Each problem folder contains:
-- ✅ Problem statement and link
-- 📄 Solution with code and explanation
-- 🧠 Key takeaways and time/space complexity
-
----
-
 ## 🚀 Getting Started
 
 1. Fork this repo 🍴
